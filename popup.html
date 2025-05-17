@@ -2,75 +2,61 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Study Snout</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      background: #1e1e1e;
-      color: black;
-    }
-    .container {
-      display: flex;
-      padding: 10px;
-    }
-    .left-panel {
-      background: #6366f1;
-      border-radius: 30px;
-      padding: 20px;
-      flex: 1;
-      color: black;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .husky {
-      max-width: 120px;
-      border-radius: 10px;
-    }
-    .card {
-      background: white;
-      border-radius: 20px;
-      padding: 10px;
-      margin-top: 10px;
-      width: 100%;
-    }
-    .input-box {
-      background: #ddd;
-      border-radius: 15px;
-      height: 40px;
-      margin-top: 10px;
-    }
-    .shop {
-      margin-left: 20px;
-      background: white;
-      border-radius: 20px;
-      padding: 10px;
-      width: 150px;
-    }
-    .shop img {
-      height: 40px;
-      margin: 5px;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Helper Hendrix</title>
+  <link rel="stylesheet" href="popup.css">
+  <script src="popup.js" defer></script>
 </head>
 <body>
-  <div class="container">
-    <div class="left-panel">
-      <img class="husky" src="husky.jpg" alt="husky">
-      <div class="card">
-        <strong>Hey Jimmy!</strong><br>
-        What do you want to work on today?
-        <div class="input-box"></div>
-      </div>
-      <div class="card">
-        <strong>Assignments:</strong>
-      </div>
+  <!-- Husky Avatar -->
+  <img id="huskyImage" src="husky.jpg" alt="Husky" class="husky-image">
+
+  <!-- 1) OpenAI Key Entry -->
+  <div id="openaiKeyContainer">
+    <h3>Enter OpenAI API Key</h3>
+    <input id="openaiKeyInput" type="password" placeholder="sk-...">
+    <button id="saveOpenAIKeyBtn">Save OpenAI Key</button>
+  </div>
+
+  <!-- 2) Canvas Token Entry -->
+  <div id="canvasKeyContainer">
+    <h3>Enter Canvas API Token</h3>
+    <input id="canvasKeyInput" type="password" placeholder="Canvas Access Token">
+    <button id="saveCanvasKeyBtn">Save Canvas Token</button>
+  </div>
+
+  <!-- 3) Main Chat & Tasks UI -->
+  <div id="chatContainer">
+    <h3>Hendrix Helper</h3>
+    <textarea id="userInput" placeholder="Type your question…"></textarea>
+    <button id="sendBtn">Send</button>
+    <pre id="response"></pre>
+
+    <!-- Task Buttons -->
+    <div class="tasks">
+      <button id="task1Btn" class="task-btn">Task 1 (5 pts)</button>
+      <button id="task2Btn" class="task-btn">Task 2 (5 pts)</button>
+      <button id="task3Btn" class="task-btn">Task 3 (5 pts)</button>
     </div>
-    <div class="shop">
-      <strong>Shop:</strong><br>
-      <img src="hat.png">
-      <img src="sunglasses.png">
+
+    <!-- Canvas To-Dos -->
+    <button id="fetchCanvasBtn">Load Canvas To-Dos</button>
+    <button id="fetchCalendarBtn">Load Upcoming Assignments</button>
+    <div id="canvasCalendar"></div>
+    <div id="canvasTodos"></div>
+
+    <!-- Points & Shop -->
+    <div id="pointsDisplay">Total Points: <span id="totalPoints">0</span></div>
+    <button id="shopBtn">Shop</button>
+    <div id="shopModal" class="modal">
+      <div class="modal-content">
+        <span id="closeShop" class="close">&times;</span>
+        <h3>Shop (Spend Points)</h3>
+        <div class="shop-items">
+          <img src="icons/hat.png" alt="Hat" class="shop-item" data-cost="10">
+          <img src="icons/sunglasses.png" alt="Sunglasses" class="shop-item" data-cost="15">
+        </div>
+      </div>
     </div>
   </div>
 </body>

@@ -2,12 +2,25 @@
   "manifest_version": 3,
   "name": "Helper Hendrix",
   "version": "1.0",
-  "description": "chrome exstension to help students with task management.",
+  "description": "A Chrome extension with ChatGPT integration.",
   "action": {
     "default_popup": "popup.html",
-    "default_icon": "icon.png"
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
   },
-  "permissions": ["activeTab", "scripting"],
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://api.openai.com/*",
+    "https://*.instructure.com/*",
+    "https://canvas.uw.edu/*"
+  ],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
@@ -15,6 +28,6 @@
     }
   ],
   "icons": {
-    "48": "icon.png"
+    "48": "icons/icon48.png"
   }
 }
