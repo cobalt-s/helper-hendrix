@@ -1,10 +1,28 @@
 /* Popup width and base styles */
 html, body {
-  width: 320px;
+  width: 383px;
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background: #f0f2f5;
+  background: #FF768D;
+}
+
+#huskyImage {
+margin-left:0;
+margin-right:0;
+}
+
+.husky-frame{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-family:Poppins;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.typewriter {
+  width: 168px;
 }
 
 /* Container sections */
