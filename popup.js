@@ -2,6 +2,13 @@ let OPENAI_API_KEY;
 let CANVAS_API_KEY;
 let totalPoints = 0;
 
+// Utility to adjust points by a specific delta
+function changePoints(delta) {
+  totalPoints += delta;
+  document.getElementById('totalPoints').textContent = totalPoints;
+  chrome.storage.local.set({ totalPoints });
+}
+
 // UI Helpers
 function showOpenAIKeyUI() { document.getElementById('openaiKeyContainer').style.display='block'; document.getElementById('canvasKeyContainer').style.display='none'; document.getElementById('chatContainer').style.display='none'; }
 function showCanvasKeyUI() { document.getElementById('openaiKeyContainer').style.display='none'; document.getElementById('canvasKeyContainer').style.display='block'; document.getElementById('chatContainer').style.display='none'; }
@@ -14,6 +21,9 @@ chrome.storage.local.get(['openai_api_key','canvas_api_key','totalPoints'], ({ o
   else { OPENAI_API_KEY=openai_api_key; CANVAS_API_KEY=canvas_api_key; showChatUI(); }
   totalPoints = pts||0;
   document.getElementById('totalPoints').textContent = totalPoints;
+
+  // Set up the Pokémon shop
+  setStore();  // from pokeTrack.js
 });
 
 // Save OpenAI key
@@ -205,6 +215,50 @@ async function generateTasks() {
 document.getElementById('shopBtn').onclick=()=>document.getElementById('shopModal').style.display='block';
 document.getElementById('closeShop').onclick=()=>document.getElementById('shopModal').style.display='none';
 document.querySelectorAll('.shop-item').forEach(img=>{img.onclick=()=>{const cost=parseInt(img.dataset.cost); if(totalPoints>=cost){adjustPoints(false);alert(`Purchased for ${cost}`);}else alert(`Need ${cost}`);};});
+
+// Render Pokémon shop items into #pokemonShop
+function renderPokemonShop() {
+  const container = document.getElementById('pokemonShop');
+  container.innerHTML = '';
+  storePokemon.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'shop-pokemon-item';
+    const img = document.createElement('img');
+    img.src = p.image;
+    img.alt = p.name;
+    img.className = 'shop-item';
+    const nameDiv = document.createElement('div');
+    nameDiv.textContent = p.name;
+    const priceDiv = document.createElement('div');
+    priceDiv.textContent = `${p.price} pts`;
+    const btn = document.createElement('button');
+    btn.textContent = 'Buy';
+    btn.onclick = () => {
+      if (totalPoints >= p.price) {
+        buyPokemon(p);
+        changePoints(-p.price);
+        renderPokemonShop();
+      } else {
+        alert('Not enough points!');
+      }
+    };
+    card.append(img, nameDiv, priceDiv, btn);
+    container.append(card);
+  });
+}
+
+// Wire up shop button to render Pokémon and show modal
+const shopBtn = document.getElementById('shopBtn');
+if (shopBtn) {
+  shopBtn.onclick = () => {
+    console.log('Shop button clicked, storePokemon:', storePokemon);
+    if (typeof setStore === 'function') setStore();
+    renderPokemonShop();
+    document.getElementById('shopModal').style.display = 'block';
+  };
+} else {
+  console.error('shopBtn element not found');
+}
 
 // Hendrix alert (if button exists)
 const hendrixBtn = document.getElementById('btn');

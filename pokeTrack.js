@@ -1,0 +1,243 @@
+// This file is part of the Hendrix Chrome Extension.
+
+// ArrayList of Pokemon
+// This is a list of Pokemon with their names, images, owned status, and prices
+// This will be temporarily stored in the extension
+// until we can get a backend set up with all pokemon data
+const pokeList = [
+  {
+    name: "Bulbasaur",
+    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+    owned: false,
+    price: 15,
+  },
+  {
+    name: "Charmander",
+    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
+    owned: false,
+    price: 15,
+  },
+  {
+    name: "Squirtle",
+    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
+    owned: false,
+    price: 15,
+  },
+  {
+    name: "Chikorita",
+    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/152.png",
+    owned: false,
+    price: 15,
+  },
+  {
+    name: "Cyndaquil",
+    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/155.png",
+    owned: false,
+    price: 15,
+  },
+  {
+    name: "Totodile",
+    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/158.png",
+    owned: false,
+    price: 15,
+  },
+  {
+    name: "Treecko",
+    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/252.png",
+    owned: false,
+    price: 15,
+  },
+  {
+    name: "Torchic",
+    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/255.png",
+    owned: false,
+    price: 15,
+  },
+  {
+    name: "Mudkip",
+    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/258.png",
+    owned: false,
+    price: 15,
+  },
+  {
+    name: "Turtwig",
+    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/387.png",
+    owned: false,
+    price: 15,
+  },
+  {
+    name: "Chimchar",
+    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/390.png",
+    owned: false,
+    price: 15,
+  },
+  {
+    name: "Piplup",
+    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/393.png",
+    owned: false,
+    price: 15,
+  },
+  {
+    name: "Snivy",
+    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/495.png",
+    owned: false,
+    price: 15,
+  },
+  {
+    name: "Tepig",
+    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/498.png",
+    owned: false,
+    price: 15,
+  },
+  {
+    name: "Oshawott",
+    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/501.png",
+    owned: false,
+    price: 15,
+  },
+  {
+    name: "Chespin",
+    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/650.png",
+    owned: false,
+    price: 15,
+  },
+  {
+    name: "Fennekin",
+    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/653.png",
+    owned: false,
+    price: 15,
+  },
+  {
+    name: "Froakie",
+    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/656.png",
+    owned: false,
+    price: 15,
+  },
+  {
+    name: "Rowlet",
+    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/722.png",
+    owned: false,
+    price: 15,
+  },
+  {
+    name: "Litten",
+    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/725.png",
+    owned: false,
+    price: 15,
+  },
+  {
+    name: "Popplio",
+    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/728.png",
+    owned: false,
+    price: 15,
+  },
+  {
+    name: "Grookey",
+    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/810.png",
+    owned: false,
+    price: 15,
+  },
+  {
+    name: "Scorbunny",
+    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/813.png",
+    owned: false,
+    price: 15,
+  },
+  {
+    name: "Sobble",
+    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/816.png",
+    owned: false,
+    price: 15,
+  },
+  {
+    name: "Sprigatito",
+    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/906.png",
+    owned: false,
+    price: 15,
+  },
+  {
+    name: "Fuecoco",
+    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/909.png",
+    owned: false,
+    price: 15,
+  },
+  {
+    name: "Quaxly",
+    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/912.png",
+    owned: false,
+    price: 15,
+  },
+  {
+    name: "Pikachu",
+    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
+    owned: false,
+    price: 15,
+  },
+  {
+    name: "Eevee",
+    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/133.png",
+    owned: false,
+    price: 15,
+  },
+  {
+    name: "Mew",
+    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/151.png",
+    owned: false,
+    price: 100,
+  },
+];
+
+
+// advanced Pokemon: Index 29+
+
+
+// ArrayLists to store Pokemon data
+// These arrays will be used to store the Pokemon owned by the user and the Pokemon in the store
+const myPokemon = []; // array to store the Pokemon owned by the user
+const storePokemon = []; // array to store the Pokemon in the store
+
+// randomly select a Pokemon from the list
+function getRandomPokemon() {
+  const randomIndex = Math.floor(Math.random() * pokeList.length);
+  return pokeList[randomIndex];
+}
+
+// function to add a Pokemon to the store
+function addPokemonToStore(pokemon) {
+  // check if the Pokemon is already in the store
+  const existingPokemon = storePokemon.find((p) => p.name === pokemon.name);
+  if (!existingPokemon && !pokemon.owned) { // check if the Pokemon is not already owned
+    // add the Pokemon to the store
+    storePokemon.push(pokemon);
+  }
+}
+
+// function to add a Pokemon to the store 
+function setStore() {
+  // clear the store
+  storePokemon.length = 0;
+  // add random Pokemon to the store
+  for (let i = 0; i < 6; i++) addPokemonToStore(getRandomPokemon());
+}
+
+// function to set the store each hour
+function setStoreHourly() {
+  // set the store every hour
+  setInterval(() => {
+    setStore();
+  }, 3600000); // 3600000 milliseconds = 1 hour
+}
+
+// function to buy a Pokemon
+function buyPokemon(pokemon) {
+  // check if the Pokemon is in the store
+  const index = storePokemon.findIndex((p) => p.name === pokemon.name);
+  if (index !== -1) {
+    // remove the Pokemon from the store
+    storePokemon.splice(index, 1);
+    // add the Pokemon to the user's collection
+    myPokemon.push(pokemon);
+    // mark the Pokemon as owned
+    pokemon.owned = true;
+  }
+}
