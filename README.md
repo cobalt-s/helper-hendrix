@@ -9,8 +9,8 @@ This is built on JavaScript and Html and it uses the OpenAI Api for the chat res
 
 **Who did what:** 
 
-- Jimmy - Backend, Canvas API, Design
+- Jimmy - Backend, Canvas API integration, Design
 - Renzo - Pokemon API backend, Frontend UI, Design
-- Rosie - Frontend UI, UX/UI, Design
-- Cobalt - Backend, OpenAI integration, Design
+- Rosie - Frontend UX/UI for the entire thing, HTML, CSS, JS
+- Cobalt - Backend, OpenAI integration, Canvas API integration
 
