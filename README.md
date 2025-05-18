@@ -6,7 +6,7 @@
 > 🤖 Integrates OpenAI for task generation
 > 📚 Uses the Canvas API for course-based task management
 
-[![Watch the demo](https://img.youtube.com/vi/pTieljmAOw0/0.jpg)](https://www.youtube.com/watch?v=pTieljmAOw0&t=42s)
+[![Watch the demo](https://img.youtube.com/vi/pTieljmAOw0/0.jpg)](https://www.youtube.com/watch?v=pTieljmAOw0&t)
 
 ---
 
