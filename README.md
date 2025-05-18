@@ -1,16 +1,75 @@
-# helper-hendrix
-This is the helper-hendrix browser exstension for this you need a OpenAI key and a Canvas Developer Key. 
+# 🐶 helper-hendrix
 
-For this browser exstension it can create tasks based on what you tell it. And you can earn points to buy pokemon to be in your stash. 
+**helper-hendrix** is a browser extension designed to help students stay on top of their tasks with a little help from Hendrix the Husky. Tell it what you need to get done, and it will generate customized tasks for you. As you complete tasks, you’ll earn points you can spend to collect Pokémon in your virtual stash!
 
+> 🧩 Built with JavaScript and HTML/CSS
+> 🤖 Integrates OpenAI for task generation
+> 📚 Uses the Canvas API for course-based task management
 
-This is built on JavaScript and Html and it uses the OpenAI Api for the chat responses and the Canvas API for the ToDo integration. 
+[![Watch the demo](https://img.youtube.com/vi/pTieljmAOw0/0.jpg)](https://www.youtube.com/watch?v=pTieljmAOw0&t=42s)
 
+---
 
-**Who did what:** 
+## 🔑 Requirements
 
-- Jimmy - Backend, Canvas API integration, Design
-- Renzo - Pokemon API backend, Frontend UI, Design
-- Rosie - Frontend UX/UI for the entire thing, HTML, CSS, JS
-- Cobalt - Backend, OpenAI integration, Canvas API integration
+To use the full features of helper-hendrix, you'll need:
 
+* An **OpenAI API key**
+* A **Canvas LMS Developer Key**
+
+These allow the extension to generate intelligent task breakdowns and sync with your Canvas courses.
+
+---
+
+## ⚙️ Features
+
+* 🧾 **Task Generation**: Automatically break down your goals into actionable items using OpenAI.
+* 🎓 **Canvas Integration**: Pull assignments and due dates straight from your Canvas account.
+* 🐾 **Pokémon Rewards**: Earn points for completing tasks and unlock new Pokémon to add to your collection.
+* 🎨 **Customizable UI**: Clean and responsive design with a fun student-friendly vibe.
+
+---
+
+## 👩‍💻 Who Did What
+
+| Name       | Contributions                                    |
+| ---------- | ------------------------------------------------ |
+| **Jimmy**  | Backend, Canvas API integration, UI Design       |
+| **Renzo**  | Pokémon API backend, Frontend UI, Design         |
+| **Rosie**  | Frontend UX/UI – HTML, CSS, JavaScript           |
+| **Cobalt** | Backend, OpenAI integration, Canvas API features |
+
+---
+
+## 🛠 Tech Stack
+
+* **Frontend**: HTML, CSS, JavaScript
+* **APIs**: OpenAI API, Canvas LMS API, Pokémon API
+* **Browser Extension**: Uses manifest v3
+
+---
+
+## 🚀 Getting Started
+
+1. Clone the repo:
+
+   ```bash
+   git clone https://github.com/your-org/helper-hendrix.git
+   ```
+2. Load the extension into your browser via the Extensions page (`chrome://extensions/` in Chrome) using **Developer Mode**.
+3. Add your api keys when using the exstension. 
+4. Start tasking and collecting Pokémon!
+
+---
+
+## 🎓 Made at UW Tacoma
+
+This project was built by us at **University of Washington Tacoma** as part of a hackathon.
+
+---
+
+## Future goals
+- Better polish
+- Fleshed out pokemon/item system
+- Tasks implemented fully.
+- Voice input
