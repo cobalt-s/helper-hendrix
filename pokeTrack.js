@@ -1,5 +1,9 @@
 // This file is part of the Hendrix Chrome Extension.
 
+// pokeTrack.js
+
+import { getMyPokemon as loadFromStorage } from "./storage.js";
+
 // ArrayList of Pokemon
 // This is a list of Pokemon with their names, images, owned status, and prices
 // This will be temporarily stored in the extension
@@ -196,48 +200,38 @@ const pokeList = [
 const myPokemon = []; // array to store the Pokemon owned by the user
 const storePokemon = []; // array to store the Pokemon in the store
 
-// randomly select a Pokemon from the list
-function getRandomPokemon() {
-  const randomIndex = Math.floor(Math.random() * pokeList.length);
-  return pokeList[randomIndex];
+export function getRandomPokemon() {
+  return pokeList[Math.floor(Math.random() * pokeList.length)];
 }
 
-// function to add a Pokemon to the store
-function addPokemonToStore(pokemon) {
-  // check if the Pokemon is already in the store
-  const existingPokemon = storePokemon.find((p) => p.name === pokemon.name);
-  if (!existingPokemon && !pokemon.owned) { // check if the Pokemon is not already owned
-    // add the Pokemon to the store
-    storePokemon.push(pokemon);
+export function addPokemonToStore(p) {
+  if (!p.owned && !storePokemon.find(x => x.name === p.name)) {
+    storePokemon.push(p);
   }
 }
 
-// function to add a Pokemon to the store 
-function setStore() {
-  // clear the store
+export function setStore() {
   storePokemon.length = 0;
-  // add random Pokemon to the store
-  for (let i = 0; i < 6; i++) addPokemonToStore(getRandomPokemon());
-}
-
-// function to set the store each hour
-function setStoreHourly() {
-  // set the store every hour
-  setInterval(() => {
-    setStore();
-  }, 3600000); // 3600000 milliseconds = 1 hour
-}
-
-// function to buy a Pokemon
-function buyPokemon(pokemon) {
-  // check if the Pokemon is in the store
-  const index = storePokemon.findIndex((p) => p.name === pokemon.name);
-  if (index !== -1) {
-    // remove the Pokemon from the store
-    storePokemon.splice(index, 1);
-    // add the Pokemon to the user's collection
-    myPokemon.push(pokemon);
-    // mark the Pokemon as owned
-    pokemon.owned = true;
+  for (let i = 0; i < 6; i++) {
+    addPokemonToStore(getRandomPokemon());
   }
 }
+
+export async function getMyPokemon() {
+  if (myPokemon.length === 0) {
+    const stored = await loadFromStorage();
+    myPokemon.push(...stored);
+  }
+  return myPokemon;
+}
+
+export function buyPokemon(pokemon) {
+  const idx = storePokemon.findIndex(x => x.name === pokemon.name);
+  if (idx !== -1) {
+    storePokemon.splice(idx, 1);
+    pokemon.owned = true;
+    myPokemon.push(pokemon);
+  }
+}
+
+export { storePokemon };
