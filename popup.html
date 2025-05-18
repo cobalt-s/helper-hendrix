@@ -13,16 +13,19 @@
 </head>
 <body>
   <!-- Husky Avatar -->
-   <section class="husky-frame">
-    <img id="huskyImage" src="husky.png" alt="Husky" class="husky-image">
-    <div class="typewriter">
-        <p>Welcome to Hendrix Helpers! Let's work on some tasks! </p>
+  <section class="husky-frame">
+    <div class="husky-intro">
+      <img id="huskyImage" src="husky.png" alt="Husky" class="husky-image">
+      <div class="typewriter">
+        <p>Welcome to Hendrix Helpers! Let’s work on some tasks!</p>
+      </div>
     </div>
-    <div>
-      <h3>Your pokemon!</h3>
+
+    <div class="team-panel">
+      <h3>Your Pokémon!</h3>
       <div id="myPokemonContainer" class="pokemon-team"></div>
     </div>
-   </section>
+  </section>
   
 
 
@@ -55,9 +58,9 @@
 
     <!-- Canvas To-Dos -->
     <button id="fetchCanvasBtn">Load Canvas To-Dos</button>
-    <button id="fetchCalendarBtn">Load Upcoming Assignments</button>
+    <!-- <button id="fetchCalendarBtn">Load Upcoming Assignments</button> -->
     <div id="canvasCalendar"></div>
-    <div id="canvasTodos"></div>
+    <!-- <div id="canvasTodos"></div> -->
 
     <!-- Points & Shop -->
     <div id="pointsDisplay">Total Points: <span id="totalPoints">0</span></div>

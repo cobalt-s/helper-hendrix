@@ -172,6 +172,8 @@ document.getElementById("fetchCanvasBtn").onclick = fetchCalendarEvents;
 
 // Fetch upcoming calendar assignment events for the next 7 days
 async function fetchCalendarEvents() {
+  document.getElementById('canvasCalendar').style.display = 'block';
+  const cal = document.getElementById('canvasCalendar');
   console.log("fetchCalendarEvents()", CANVAS_API_KEY);
   if (!CANVAS_API_KEY) return alert("No Canvas token");
 
@@ -337,6 +339,8 @@ async function generateTasks() {
     console.error("Task parse error:", out);
     alert("Failed to parse tasks from response.");
   }
+
+  document.querySelector('.tasks').style.display = 'flex';
 }
 
 // Shop modal & items
