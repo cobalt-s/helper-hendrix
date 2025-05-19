@@ -38,7 +38,7 @@ function renderMyPokemon() {
     container.textContent = "No Pokémon yet!";
     return;
   }
-  myPokemon.forEach((p) => {
+  myPokemon.forEach((p, idx) => {
     const card = document.createElement("div");
     card.className = "team-pokemon-card";
     const img = document.createElement("img");
@@ -46,7 +46,20 @@ function renderMyPokemon() {
     img.alt = p.name;
     const name = document.createElement("div");
     name.textContent = p.name;
-    card.append(img, name);
+    // --- Add Sell Button ---
+    const sellBtn = document.createElement("button");
+    sellBtn.textContent = `Sell (+${Math.floor(p.price / 2)} pts)`;
+    sellBtn.onclick = async () => {
+      // Remove from myPokemon
+      myPokemon.splice(idx, 1);
+      // Save to storage
+      await storeUserPokemon(myPokemon);
+      // Add points
+      changePoints(Math.floor(p.price / 2));
+      // Re-render
+      renderMyPokemon();
+    };
+    card.append(img, name, sellBtn);
     container.append(card);
   });
 }

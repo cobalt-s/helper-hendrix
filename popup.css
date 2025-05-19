@@ -85,6 +85,21 @@ html, body {
   box-shadow: inset -2px -2px 0 #d4b300, 2px 2px 0 var(--shadow-light);
 }
 
+.team-pokemon-card button {
+  margin-top: 4px;
+  padding: 4px 8px;
+  font-size: 12px;
+  background: var(--btn-green);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.team-pokemon-card button:hover {
+  background: var(--btn-green-hover);
+}
+
 /*────────────────────────────────────────────────────────────────────────────
   Input & Button Styles
 ────────────────────────────────────────────────────────────────────────────*/
