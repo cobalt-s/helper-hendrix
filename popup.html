@@ -1,77 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Helper Hendrix</title>
-  <link rel="stylesheet" href="popup.css">
-  <script type="module" src="popup.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-    
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-</head>
-<body>
-  <!-- Husky Avatar -->
-  <section class="husky-frame">
-    <div class="husky-intro">
-      <img id="huskyImage" src="husky.png" alt="Husky" class="husky-image">
-      <div class="typewriter">
-        <p>Welcome to Hendrix Helpers! Let’s work on some tasks!</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Helper Hendrix</title>
+    <link rel="stylesheet" href="popup.css" />
+    <script type="module" src="popup.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Husky Avatar -->
+    <section class="husky-frame">
+      <div class="husky-intro">
+        <img id="huskyImage" src="husky.png" alt="Husky" class="husky-image" />
+        <div class="typewriter">
+          <p>Welcome to Hendrix Helpers! Let’s work on some tasks!</p>
+        </div>
+      </div>
+
+      <div class="team-panel">
+        <h3>Your Pokémon!</h3>
+        <div id="myPokemonContainer" class="pokemon-team"></div>
+      </div>
+    </section>
+
+    <!-- 1) OpenAI Key Entry -->
+    <div id="openaiKeyContainer">
+      <h3>Enter OpenAI API Key</h3>
+      <input id="openaiKeyInput" type="password" placeholder="sk-..." />
+      <button id="saveOpenAIKeyBtn">Save OpenAI Key</button>
+    </div>
+
+    <!-- 2) Canvas Token Entry -->
+    <div id="canvasKeyContainer">
+      <h3>Enter Canvas API Token</h3>
+      <input
+        id="canvasKeyInput"
+        type="password"
+        placeholder="Canvas Access Token"
+      />
+      <button id="saveCanvasKeyBtn">Save Canvas Token</button>
+    </div>
+
+    <!-- 3) Main Chat & Tasks UI -->
+    <div id="chatContainer">
+      <textarea id="userInput" placeholder="Type your question…"></textarea>
+      <button id="sendBtn">Start</button>
+      <pre id="response"></pre>
+
+      <!-- Task Buttons -->
+      <div class="tasks">
+        <button id="task1Btn" class="task-btn">Task 1 (5 pts)</button>
+        <button id="task2Btn" class="task-btn">Task 2 (5 pts)</button>
+        <button id="task3Btn" class="task-btn">Task 3 (5 pts)</button>
+      </div>
+
+      <!-- Canvas To-Dos -->
+      <button id="fetchCanvasBtn">Load Canvas To-Dos</button>
+      <!-- <button id="fetchCalendarBtn">Load Upcoming Assignments</button> -->
+      <div id="canvasCalendar"></div>
+      <!-- <div id="canvasTodos"></div> -->
+
+      <!-- Points & Shop -->
+      <div id="pointsDisplay">
+        Total Points: <span id="totalPoints">0</span>
+      </div>
+      <button id="shopBtn">Shop</button>
+      <div id="shopModal" class="modal">
+        <div class="modal-content">
+          <span id="closeShop" class="close">&times;</span>
+          <h3>Shop (Spend Points)</h3>
+          <div id="pokemonShop" class="shop-items"></div>
+        </div>
       </div>
     </div>
-
-    <div class="team-panel">
-      <h3>Your Pokémon!</h3>
-      <div id="myPokemonContainer" class="pokemon-team"></div>
-    </div>
-  </section>
-  
-
-
-  <!-- 1) OpenAI Key Entry -->
-  <div id="openaiKeyContainer">
-    <h3>Enter OpenAI API Key</h3>
-    <input id="openaiKeyInput" type="password" placeholder="sk-...">
-    <button id="saveOpenAIKeyBtn">Save OpenAI Key</button>
-  </div>
-
-  <!-- 2) Canvas Token Entry -->
-  <div id="canvasKeyContainer">
-    <h3>Enter Canvas API Token</h3>
-    <input id="canvasKeyInput" type="password" placeholder="Canvas Access Token">
-    <button id="saveCanvasKeyBtn">Save Canvas Token</button>
-  </div>
-
-  <!-- 3) Main Chat & Tasks UI -->
-  <div id="chatContainer">
-    <textarea id="userInput" placeholder="Type your question…"></textarea>
-    <button id="sendBtn">Start</button>
-    <pre id="response"></pre>
-
-    <!-- Task Buttons -->
-    <div class="tasks">
-      <button id="task1Btn" class="task-btn">Task 1 (5 pts)</button>
-      <button id="task2Btn" class="task-btn">Task 2 (5 pts)</button>
-      <button id="task3Btn" class="task-btn">Task 3 (5 pts)</button>
-    </div>
-
-    <!-- Canvas To-Dos -->
-    <button id="fetchCanvasBtn">Load Canvas To-Dos</button>
-    <!-- <button id="fetchCalendarBtn">Load Upcoming Assignments</button> -->
-    <div id="canvasCalendar"></div>
-    <!-- <div id="canvasTodos"></div> -->
-
-    <!-- Points & Shop -->
-    <div id="pointsDisplay">Total Points: <span id="totalPoints">0</span></div>
-    <button id="shopBtn">Shop</button>
-    <div id="shopModal" class="modal">
-      <div class="modal-content">
-        <span id="closeShop" class="close">&times;</span>
-        <h3>Shop (Spend Points)</h3>
-        <div id="pokemonShop" class="shop-items"></div>
-      </div>
-    </div>
-  </div>
-</body>
+  </body>
 </html>

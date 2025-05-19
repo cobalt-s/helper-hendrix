@@ -4,7 +4,7 @@ import {
   setStore,
   getMyPokemon as fetchMyPokemon,
   buyPokemon,
-  storePokemon
+  storePokemon,
 } from "./pokeTrack.js";
 
 let OPENAI_API_KEY;
@@ -38,11 +38,12 @@ function renderMyPokemon() {
     container.textContent = "No Pokémon yet!";
     return;
   }
-  myPokemon.forEach(p => {
+  myPokemon.forEach((p) => {
     const card = document.createElement("div");
     card.className = "team-pokemon-card";
-    const img  = document.createElement("img");
-    img.src = p.image; img.alt = p.name;
+    const img = document.createElement("img");
+    img.src = p.image;
+    img.alt = p.name;
     const name = document.createElement("div");
     name.textContent = p.name;
     card.append(img, name);
@@ -61,11 +62,13 @@ function changePoints(delta) {
 function renderPokemonShop() {
   const container = document.getElementById("pokemonShop");
   container.innerHTML = "";
-  storePokemon.forEach(p => {
+  storePokemon.forEach((p) => {
     const card = document.createElement("div");
     card.className = "shop-pokemon-item";
-    const img  = document.createElement("img");
-    img.src = p.image; img.alt = p.name; img.className = "shop-item";
+    const img = document.createElement("img");
+    img.src = p.image;
+    img.alt = p.name;
+    img.className = "shop-item";
     const name = document.createElement("div");
     name.textContent = p.name;
     const price = document.createElement("div");
@@ -111,13 +114,12 @@ chrome.storage.local.get(
     setStore();
     renderPokemonShop();
 
-    fetchMyPokemon().then(owned => {
+    fetchMyPokemon().then((owned) => {
       myPokemon.push(...owned);
       renderMyPokemon();
     });
   }
 );
-
 
 // Save OpenAI key
 document.getElementById("saveOpenAIKeyBtn").onclick = () => {
@@ -172,8 +174,8 @@ document.getElementById("fetchCanvasBtn").onclick = fetchCalendarEvents;
 
 // Fetch upcoming calendar assignment events for the next 7 days
 async function fetchCalendarEvents() {
-  document.getElementById('canvasCalendar').style.display = 'block';
-  const cal = document.getElementById('canvasCalendar');
+  document.getElementById("canvasCalendar").style.display = "block";
+  const cal = document.getElementById("canvasCalendar");
   console.log("fetchCalendarEvents()", CANVAS_API_KEY);
   if (!CANVAS_API_KEY) return alert("No Canvas token");
 
@@ -340,7 +342,7 @@ async function generateTasks() {
     alert("Failed to parse tasks from response.");
   }
 
-  document.querySelector('.tasks').style.display = 'flex';
+  document.querySelector(".tasks").style.display = "flex";
 }
 
 // Shop modal & items
